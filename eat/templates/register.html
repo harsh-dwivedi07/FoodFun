@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register with us</title>
+<style>
+    body{
+        
+
+        padding: 100px;
+        text-align: center;
+        background-image: url("{% static 'assets/images/banner-bg.jpg' %}");
+      
+    }
+      
+    fieldset {
+
+        width:350px;
+        height: 250px;
+        padding:40px;
+        text-align: right;
+        margin:auto;
+    }
+    header{
+        text-emphasis-color: rgb(180, 52, 52);
+    }
+    
+
+
+    
+    
+    
+</style>
+</head>
+<body>
+    
+<!--header-->
+
+    
+    <h1>Register Yourself in World Of Foods</h1><br>  
+    <style>
+        h1{
+            font-weight: lighter;
+            font-family:Georgia, Times New Roman, 'Times', serif;
+            font-size: 60px;
+            color: rgb(243, 241, 108);
+
+        }
+        legend{
+            font-variant:small-caps;
+            font-family:sans-serif;
+            font-size: 20px;
+            color: rgb(109, 96, 185);
+        }
+
+    </style>
+
+<!--//header-->
+
+<div class="main-agileits">
+    <h2 class="sub-head"></h2>
+    
+		<div class="sub-main">
+            
+			<form action="register" method="post">
+                {% csrf_token %}
+                
+                <fieldset>
+                    <legend>Sign Up</legend>
+                    <label for="name">First Name:</label>
+				<input placeholder="First Name" name="first_name" class=" name" type="text" required=""><br />
+                <label for="name2">Last Name:</label>
+				<input placeholder="Last Name" name="last_name" class="name2" type="text" required=""><br />
+                <label for="username">User Name:</label>
+                <input placeholder="User Name" name="username" class="username" type="text" required=""><br />
+                <label for="email">           Email:</label>
+				<input placeholder="Email" name="email" class="mail" type="text" required=""><br/>
+                <label for="Password1">        Password:</label>
+				<input  placeholder="Password" name="Password1" class="pass" type="password" required=""><br />
+				<label for="Password2">Confirm Password:</label>
+				<input  placeholder="Confirm Password" name="Password2" class="pass" type="password" required="">
+				<br>
+				<br>
+                <input type="submit" name="submit" value="sign up">
+            </fieldset>
+			</form>
+		</div>
+		<div class="clear"></div>
+</div>
+
+<div>
+    {% for message in messages %}
+        <h3> {{message}} </h3>
+    {% endfor %}
+    
+    <style>
+        h3{
+            text-align: center;
+            color:rgb(238, 20, 20);
+            font-size: 20px;
+        }
+        label{
+            font-size: 20px;
+            color: thistle;
+        }
+        input{
+            color:black;
+        }
+        input#submit{
+            color:black;
+        }
+    </style>
+</div>
+
+
+</body>
+</html>

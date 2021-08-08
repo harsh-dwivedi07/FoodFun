@@ -1,0 +1,75 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+
+    <style>
+
+body{
+    padding:300px;
+    text-align: center;
+    background-image: url("{% static 'assets/images/banner-bg.jpg' %}");
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+   
+        
+}
+fieldset{
+    
+    color:rgb(218, 172, 45);
+    width:300px;
+    height:fit-content;
+    border-color: rgba(207, 181, 30, 0.384);
+    margin: auto;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    text-decoration: wheat;
+    
+    
+}
+input{
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <form action="login" method="POST">
+        {% csrf_token %}
+            <fieldset>
+               <legend>Login</legend>
+                <label for="username">User Name:</label>
+                <input placeholder="User Name" name="username" class="username" type="text" required=""><br />
+
+                <label for="password">Password:</label>
+                <input placeholder="password" name="password" class="password" type="password" required=""><br />
+                <br />
+                <input type="submit" value="login" name="Login">
+
+            </fieldset>
+    </form>
+
+    <div>
+        {% for message in messages %}
+            <h3> {{message}} </h3>
+        {% endfor %}
+
+        <style>
+            h3{
+                color:red;
+                text-align: center;
+                
+                font-size: 20px;
+            }
+        </style>
+    </div>    
+</body>
+</html>
